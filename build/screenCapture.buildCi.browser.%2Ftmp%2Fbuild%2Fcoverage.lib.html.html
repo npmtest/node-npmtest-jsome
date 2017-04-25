@@ -1,5 +1,5 @@
 <html lang="en"><head>
-    <title>Code coverage report for node-npmtest-jsome/node_modules/jsome/lib/browser-style.js</title>
+    <title>Code coverage report for node-npmtest-jsome/node_modules/jsome/bin/cli.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,23 +192,23 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-jsome">npmtest-jsome (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-jsome/node_modules/jsome/lib/browser-style.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-jsome/node_modules/jsome/bin/cli.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">100% <small>(1 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">84.62% <small>(11 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">66.67% <small>(4 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(2 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">100% <small>(1 / 1)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">90.91% <small>(10 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-jsome/node_modules/jsome/lib/</a> » browser-style.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-jsome/node_modules/jsome/bin/</a> » cli.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -232,7 +232,36 @@
 18
 19
 20
-21</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -252,31 +281,71 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = {
-    black     : 'color: #000000'
-  , red       : 'color: #FF0000'
-  , green     : 'color: #00FF00'
-  , yellow    : 'color: #FFFF00'
-  , blue      : 'color: #0000FF'
-  , magenta   : 'color: #FF00FF'
-  , cyan      : 'color: #00FFFF'
-  , white     : 'color: #FFFFFF'
-  , gray      : 'color: #C0C0C0'
-  , bgBlack   : 'background: #000000'
-  , bgRed     : 'background: #FF0000'
-  , bgGreen   : 'background: #00FF00'
-  , bgYellow  : 'background: #FFFF00'
-  , bgBlue    : 'background: #0000FF'
-  , bgMagenta : 'background: #FF00FF'
-  , bgCyan    : 'background: #00FFFF'
-  , bgWhite   : 'background: #000000'
-  , bgGray    : 'background: #C0C0C0'
-}
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//#!/usr/bin/env node
+&nbsp;
+var path  = require("path")
+  , fs    = require("fs")
+  , jsome = require("../script");
+&nbsp;
+var argv = require('yargs')
+  .usage('Usage: jsome [options] &lt;file&gt;')
+  .option('c', {
+      alias     : 'colors'
+    , default   : true
+    , describe  : 'color the output'
+    , type      : 'boolean'
+  }).option('l', {
+      alias     : 'levels'
+    , default   : false
+    , describe  : 'show indentation levels'
+    , type      : 'boolean'
+  }).option('s', {
+      alias     : 'spaces'
+    , default   : 2
+    , describe  : 'specifying tabulation spaces'
+    , type      : 'number'
+  })
+  .example('jsome -cl /some/dir/file.json', 'print out the content of file.json in color displaying indentation levels')
+  .example('jsome -c false -l /some/dir/file.json', 'print out the content of file.json without color but with indentation levels')
+  .help('h')
+  .argv;
+&nbsp;
+jsome.params.colored = argv.c;
+jsome.level.show     = argv.l;
+jsome.level.spaces   = argv.s;
+&nbsp;
+var filePath = argv._[0] || '';
+&nbsp;
+fs.exists(path.resolve(filePath), function (exists) {
+  <span class="missing-if-branch" title="if path not taken">I</span>if(!exists) <span class="cstat-no" title="statement not covered">return jsome({ error : "File doesn't exists" });</span>
+  fs.readFile(path.resolve(filePath), function (error, jsonString) {
+    <span class="missing-if-branch" title="else path not taken">E</span>if(error) return jsome ({ error : error.message });
+<span class="cstat-no" title="statement not covered">    jsome.parse(jsonString.toString());</span>
+  });
+});
+&nbsp;
 &nbsp;</pre></td></tr>
 </tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 18 2017 04:33:41 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 25 2017 11:04:44 GMT+0000 (UTC)</div>
 </div>
 
 
